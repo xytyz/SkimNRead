@@ -21,6 +21,7 @@
                     </h1>
                 </div>
                 <div id="upload">
+                    <form action="{{ url_for("gfg")}}" method="post">
                     <div class="drop-zone">
                         <span class="drop-zone__prompt">Drop file here or click to upload</span>
                         <input type="file" name="myFile" class="drop-zone__input">
@@ -30,6 +31,7 @@
                       <div id="submitbutton">
                         <input type="submit">
                       </div>
+                      </form>
                       <br>
                       <br>
                 </div>
