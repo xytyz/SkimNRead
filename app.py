@@ -2,7 +2,7 @@ import tensorflow as tf
 import spacy
 import PyPDF2
 
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,flash,redirect
 nlp = spacy.load("en_core_web_sm")
 
 def split_chars(text):
@@ -17,11 +17,11 @@ def main():
 def index():
     if request.method == 'POST':
         print(request.files)
-        # check if the post request has the file part
-        # if 'myFile' not in request.files:
-        #     print('No file part')
-        #     return 'No file given'
-
+        #check if the post request has the file part
+        if 'myFile' not in request.files:
+            print('no file')
+            return 'no file given'
+    
         abstract = request.files['myFile']
         file_path = './' + abstract.filename
         abstract.save(file_path)
@@ -53,7 +53,6 @@ def index():
     test_abstract_line_numbers = [line["line_number"] for line in sample_lines]
     # One-hot encode to same depth as training data, so model accepts right input shape
     test_abstract_line_numbers_one_hot = tf.one_hot(test_abstract_line_numbers, depth=15) 
-    print(test_abstract_line_numbers_one_hot)
 
     # Get all total_lines values from sample abstract
     test_abstract_total_lines = [line["total_lines"] for line in sample_lines]
@@ -84,7 +83,8 @@ def index():
 
     # Visualize abstract lines and predicted sequence labels
     results = str([f"{test_abstract_pred_classes[i]}: {line}" for i, line in enumerate(abstract_lines)])
-    return results
+    print(results)
+    return render_template('index.html', result = results)
     
 
 if __name__ =='__main__':
