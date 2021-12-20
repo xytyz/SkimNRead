@@ -30,10 +30,11 @@
                       <br>
                         <input type="submit">
                       </form>
-                      {% if result %}
-	                  <h2> Your Prediction   : <i> {{result}} </i></h2>
-
+			<div id="output">
+                     	 {% if result %}
+	                  <p> Your Prediction   : <i> {{result}} </i></p>
 	                  {% endif %}
+			</div>
                       <br>
                       <br>
                 </div>
