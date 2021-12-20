@@ -1,26 +1,38 @@
-
+import tensorflow as tf
+import spacy
 import PyPDF2
-pdfFileObject = open('Error_prob_pcm.pdf', 'rb')
-pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
-count = pdfReader.numPages
-output = " "
-for i in range(count):
-    page = pdfReader.getPage(i)
-    output+= page.extractText()
 
-from flask import Flask
-
-example_abstract = '''This RCT examined the efficacy of a manualized social intervention for children with HFASDs. Participants were randomly assigned to treatment or wait-list conditions. Treatment included instruction and therapeutic activities targeting social skills, face-emotion recognition, interest expansion, and interpretation of non-literal language. A response-cost program was applied to reduce problem behaviors and foster skills acquisition. Significant treatment effects were found for five of seven primary outcome measures (parent ratings and direct child measures). Secondary measures based on staff ratings (treatment group only) corroborated gains reported by parents. High levels of parent, child and staff satisfaction were reported, along with high levels of treatment fidelity. Standardized effect size estimates were primarily in the medium and large ranges and favored the treatment group.", "source": "https://pubmed.ncbi.nlm.nih.gov/20232240/", "details": "RCT of a manualized social treatment for high-functioning autism spectrum disorders'''
+from flask import Flask,render_template,request
+nlp = spacy.load("en_core_web_sm")
 
 def split_chars(text):
     return " ".join(list(text))
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
+def main():
+  return render_template('index.html')
+
+@app.route('/submit', methods=['GET','POST'])
 def index():
-    import tensorflow as tf
-    import spacy
-    nlp = spacy.load("en_core_web_sm")
+    if request.method == 'POST':
+        print(request.files)
+        # check if the post request has the file part
+        # if 'myFile' not in request.files:
+        #     print('No file part')
+        #     return 'No file given'
+
+        abstract = request.files['myFile']
+        file_path = './' + abstract.filename
+        abstract.save(file_path)
+        pdfFileObject = open(file_path, 'rb')
+        pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
+        count = pdfReader.numPages
+        output = " "
+        for i in range(count):
+            page = pdfReader.getPage(i)
+            output+= page.extractText()
+
     doc = nlp(output)
     abstract_lines = [str(sent) for sent in list(doc.sents)]
     print(abstract_lines)
@@ -75,4 +87,5 @@ def index():
     return results
     
 
-app.run(host='0.0.0.0', port=81)
+if __name__ =='__main__':
+  app.run(debug=False)
