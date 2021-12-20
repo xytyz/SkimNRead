@@ -29,6 +29,12 @@
     margin-left: 20%;
     margin-right: 20%;
 }
+
+#output{
+    min-height: 300px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .mainfooter{
     min-height: 100px;
     padding: 10px 0;
