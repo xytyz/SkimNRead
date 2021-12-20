@@ -31,10 +31,10 @@
 }
 
 #output{
-  min-height: 300px;
-  min-width: 900px;
+  min-height: 400px;
+  min-width: 600px;
   margin-left: 10%;
-  margin-right: 30%;
+  margin-right: 20%;
 }
 .mainfooter{
   min-height: 100px;
