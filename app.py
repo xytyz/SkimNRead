@@ -82,8 +82,39 @@ def index():
     #print(test_abstract_pred_classes)
 
     # Visualize abstract lines and predicted sequence labels
-    results = str([f"{test_abstract_pred_classes[i]}: {line}" for i, line in enumerate(abstract_lines)])
-    print(results)
+    results = [f"{test_abstract_pred_classes[i]}: {line}" for i, line in enumerate(abstract_lines)]
+    OBJECTIVE = []
+    METHODS = []
+    BACKGROUND = []
+    RESULTS = []
+    CONCLUSIONS = []
+    for line in results:
+        if line.startswith('OBJECTIVE'):
+            line = line.lstrip('OBJECTIVE')
+            line = line.lstrip('\\n')
+            OBJECTIVE.append(line)
+        elif line.startswith('METHODS'):
+            line = line.lstrip('METHODS')
+            line = line.lstrip('\\n')
+            METHODS.append(line)
+        elif line.startswith('BACKGROUND'):
+            line = line.lstrip('BACKGROUND')
+            line = line.lstrip('\\n')
+            BACKGROUND.append(line)
+        elif line.startswith('RESULTS'):
+            line = line.lstrip('RESULTS')
+            line = line.lstrip('\\n')
+            RESULTS.append(line) 
+        elif line.startswith('CONCLUSIONS'):
+            line = line.lstrip('CONCLUSIONS')
+            line = line.lstrip('\\n')
+            CONCLUSIONS.append(line)
+    results = str([(f'Objective: {OBJECTIVE}'),
+    (f'Methods: {METHODS}'),
+    (f'Background: {BACKGROUND}'),
+    (f'Results: {RESULTS}'),
+    (f'Conclusions: {CONCLUSIONS}')])
+     
     return render_template('index.html', result = results)
     
 
