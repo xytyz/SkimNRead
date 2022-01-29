@@ -1,0 +1,51 @@
+1. Blood. 2022 Jan 27;139(4):523-537. doi: 10.1182/blood.2021011597.
+
+PI3Kδ/γ inhibition promotes human CART cell epigenetic and metabolic 
+reprogramming to enhance antitumor cytotoxicity.
+
+Funk CR(1), Wang S(1), Chen KZ(1), Waller A(1), Sharma A(1), Edgar CL(1), Gupta 
+VA(1), Chandrakasan S(2), Zoine JT(3), Fedanov A(3), Raikar SS(3), Koff JL(1), 
+Flowers CR(3)(4), Coma S(5), Pachter JA(5), Ravindranathan S(1), Spencer HT(3), 
+Shanmugam M(1), Waller EK(1).
+
+Author information:
+(1)Department of Hematology and Medical Oncology, Emory University School of 
+Medicine, Atlanta, GA.
+(2)Division of Bone Marrow Transplant and.
+(3)Cell and Gene Therapy Program, Aflac Cancer and Blood Disorders Center, 
+Department of Pediatrics, Children's Healthcare of Atlanta and Emory University 
+School of Medicine, Atlanta, GA.
+(4)Department of Lymphoma/Myeloma, Division of Cancer Medicine, University of 
+Texas MD Anderson Cancer Center, Houston, TX; and.
+(5)Verastem Oncology Inc, Needham, MA.
+
+Current limitations in using chimeric antigen receptor T(CART) cells to treat 
+patients with hematological cancers include limited expansion and persistence 
+in vivo that contribute to cancer relapse. Patients with chronic lymphocytic 
+leukemia (CLL) have terminally differentiated T cells with an exhausted 
+phenotype and experience low complete response rates after autologous CART 
+therapy. Because PI3K inhibitor therapy is associated with the development of 
+T-cell-mediated autoimmunity, we studied the effects of inhibiting the PI3Kδ and 
+PI3Kγ isoforms during the manufacture of CART cells prepared from patients with 
+CLL. Dual PI3Kδ/γ inhibition normalized CD4/CD8 ratios and maximized the number 
+of CD8+ T-stem cell memory, naive, and central memory T-cells with 
+dose-dependent decreases in expression of the TIM-3 exhaustion marker. CART 
+cells manufactured with duvelisib (Duv-CART cells) showed significantly 
+increased in vitro cytotoxicity against CD19+ CLL targets caused by increased 
+frequencies of CD8+ CART cells. Duv-CART cells had increased expression of the 
+mitochondrial fusion protein MFN2, with an associated increase in the relative 
+content of mitochondria. Duv-CART cells exhibited increased SIRT1 and TCF1/7 
+expression, which correlated with epigenetic reprograming of Duv-CART cells 
+toward stem-like properties. After transfer to NOG mice engrafted with a human 
+CLL cell line, Duv-CART cells expressing either a CD28 or 41BB costimulatory 
+domain demonstrated significantly increased in vivo expansion of CD8+ CART 
+cells, faster elimination of CLL, and longer persistence. Duv-CART cells 
+significantly enhanced survival of CLL-bearing mice compared with conventionally 
+manufactured CART cells. In summary, exposure of CART to a PI3Kδ/γ inhibitor 
+during manufacturing enriched the CART product for CD8+ CART cells with 
+stem-like qualities and enhanced efficacy in eliminating CLL in vivo.
+
+© 2022 by The American Society of Hematology.
+
+DOI: 10.1182/blood.2021011597
+PMID: 35084470
