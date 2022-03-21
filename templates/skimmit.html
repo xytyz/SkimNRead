@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skimmy</title>
+    <link rel="stylesheet" href="static/cs/style_result.css">
+    <script>
+
+
+    </script>
+</head>
+<body>
+    <div class="mainContainer">
+<!-- NavBar -->
+        <div class="navBar">
+            <div class="navLogo">
+                <form method="get" action="/">
+                <button type="submit" class="topButton" id="Skimmy" >&lt;/Skimmy&gt;</button>
+                </form>
+                <!-- <text id="_Skimmy_" data-name="&lt;/Skimmy&gt;" class="cls-1" transform="translate(0 41)"><tspan x="0" y="0">&lt;/Skimmy&gt;</tspan></text> -->
+            </div>
+            <div class="navButtons">
+                <button type="submit" class="topButton" id="Home" >Home</button>
+                <button class="topButton" id="About" >About Us</button>
+            </div>            
+                <button class="Options"> sidebar</button>
+            </div>
+<!-- Actual Body of the Page -->
+        <div class="container">
+            <div class="header" id="pageOne">
+                
+            </div>
+            <div class="form" id="pageOne">
+
+            </div>
+            <div class="story" id="pageOne">
+
+            </div>
+            <div class="sucess" id="pageTwo">
+                <h1>Skimmy is done!</h1>
+                <hr>
+            </div>
+            <div class="content" id="pageTwo">
+                <h1 class="OutputHeader">Objective - </h1>
+                <div class="Output" id="Methods"><div id="output">{{ objective }}</div>
+                <h1 class="OutputHeader">Methods - </h1>
+                <div class="Output" id="Methods"><div id="output">{{ methods}}</div>
+                <h1 class="OutputHeader">Results - </h1>
+                <div class="Output" id="Results" >{{ results }}</div>
+                <h1 class="OutputHeader">Background - </h1>
+                <div class="Output" id="Background">{{ background }}</div>
+                <h1 class="OutputHeader">Conclusion - </h1>
+                <div class="Output" id="Conclusion">{{ conclusions }}</div>
+            </div>
+        </div>
+<!-- Bottom Text of Page -->
+        <div class="bottomText">
+            <div class="copyright">
+                @2022 Team Skimmy
+            </div>
+            <div class="links">
+                    <a href="">Privacy Note</a>
+                    <a href="">Become Our Patreon</a>
+                    <a href="">Contact Us</a>
+            </div>
+        </div>
+    </div>   
+</body>
+</html>
