@@ -1,5 +1,6 @@
 import tensorflow as tf
 import spacy
+import PyPDF2
 
 from flask import Flask,render_template,request,flash,redirect
 
@@ -18,23 +19,21 @@ def main():
 @app.route('/submit', methods=['GET','POST'])
 def index():
     if request.method == 'POST':
-        #check if the post request has the file part
-        # if 'myFile' not in request.files:
-        #     print('no file')
-        #     return 'no file given'
-    
-        abstract = request.form.get("paragraph_text")
-        # file_path = './' + abstract.filename
-        # abstract.save(file_path)
-        # pdfFileObject = open(file_path, 'rb')
-        # pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
-        # count = pdfReader.numPages
-        # output = " "
-        # for i in range(count):
-        #     page = pdfReader.getPage(i)
-        #     output+= page.extractText()
-    # output = output.lstrip('\n')
-    output = abstract
+        if 'myfile'  in request.files:
+            abstract = request.files['myfile']
+            file_path = './' + abstract.filename
+            abstract.save(file_path)
+            pdfFileObject = open(file_path, 'rb')
+            pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
+            count = pdfReader.numPages
+            output = " "
+            for i in range(count):
+                page = pdfReader.getPage(i)
+                output+= page.extractText()
+            output = output.lstrip('\n')
+        else:
+            output = request.form.get("paragraph_text")
+       
     doc = nlp(output)
     abstract_lines = [str(sent) for sent in list(doc.sents)]
     print(abstract_lines)
@@ -134,3 +133,6 @@ def index():
                             conclusions=CONCLUSIONS)
     
 
+
+if __name__ =='__main__':
+  app.run(debug=False)
