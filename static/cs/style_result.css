@@ -24,16 +24,19 @@ Switch to Mobile View at 575px */
   
   
 body{
+    body{
     margin-top: 0px; 
     margin-bottom: 0px; 
     margin-left: 0px; 
     margin-right: 0px;
     padding: 0;
     color: var(--Text); 
-    font-size: 2rem; 
+    font-size: 2ren; 
     background-color: var(--Tertiary);
     display:flex; 
     flex-direction:column; 
+    max-width: 1536px;
+    overflow-x: hidden; 
 }
 
 button{
