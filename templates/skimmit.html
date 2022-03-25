@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skimmy</title>
     <link rel="stylesheet" href="static/cs/style_result.css">
-    <script>
-
-
-    </script>
+    <script src="https://kit.fontawesome.com/996f78b0c3.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="mainContainer">
@@ -29,44 +26,6 @@
             </div>
 <!-- Actual Body of the Page -->
         <div class="container">
-
-                                <!-- Page One-->
-
-            <div class="header" id="pageOne">
-                <h2 class="heading">No Text Is Ever <span class="highlight">Too Complicated</span> With Skimmy.</h2>
-                <h3 class="subHeading">A New Approach To Reading  Research Abstracts.</h3>
-                <div class="vl"></div>
-            </div>
-
-            <div class="form" id="pageOne">
-                <div class="SkimForm"><h2>Let's Get Skimming.</h2></div>
-                <br>
-                <div class="inputArea">
-                    <div class="textbox">
-                        <form action="{{ url_for('index') }}"  method="POST">
-                            <textarea name="paragraph_text" cols="60" rows="30" placeholder="Kindly Type Your Text Here.." ></textarea>  
-                            <br>
-                            <button class="textbt">Skim it !</button>
-                        </form>
-                    </div>
-                
-                    <div class="separator"> 
-                    </div> 
-
-                    <div class="uploadpart">
-                        <div class="or"><h2>-OR-</h2></div>
-                        <form method="post" enctype="multipart/form-data">
-                            <label for="upload-file">Upload</label>
-                            <input type="file" name="myfile" id="upload-file" />
-                            <br>
-                        </form>
-                        <div><h2> Upload PDF or txt Files! </h2> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="story" id="pageOne">
-            </div>
-
                                 <!-- Page Two-->
 
             <div class="sucess" id="pageTwo">
@@ -85,6 +44,7 @@
                 <h1 class="OutputHeader">Conclusion - </h1>
                     <div class="Output" id="Conclusion">{{ conclusions }}</div>
             </div>
+        </div>
 <!-- Bottom Text of Page -->
         <footer class="bottomText">
             <div class="copyright">
