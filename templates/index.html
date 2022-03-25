@@ -4,101 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="static/cs/style.css">
+    <title>Skimmy</title>
+    <link rel="stylesheet" href="static/cs/style_result.css">
     <script src="https://kit.fontawesome.com/996f78b0c3.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="templates/Skimmy.png" alt="skimmylogo">
-        </div>
-        <div class="name">
-            <h1> &lt/Skimmy&gt </h1>
-        </div>
-        <div class="righttbar">
-            <ul>
-                <li><a href="">About Us</a></li>
-                <br>
-                <li> <a href="">Contact Us</a></li>
-                <br>
-                <li> <a href="" >Become Our Patron</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="overview">
-        <div class="overviewinner">
-            <h2 style="color: white; margin-top: 2rem;">No Text Is Ever </h2>
-            <h2 style="color: rgb(107, 235, 134);">Too Complicated</h2>
-            <h2 style="color: white;">With Skimmy.</h2>
-        </div>
-        <div class="overviewinnerright">
-            <h2 style="color: rgb(83, 80, 81); font-size: 30px;">A New Approach To Reading Research Abstracts.</h2>
-        </div>
-    </div>
-
-
-    <div class="Skim">
-        <div class="start">
-            <div class="skimtext">
-                <h4 style="background-color: #53fdae; font-size: 20px; margin-left: 0.5rem; margin-top: 2rem; border-radius: 5px;">Hey Skim Text here</h4>
+    <div class="mainContainer">
+<!-- NavBar -->
+        <div class="navBar">
+            <div class="navLogo">
+                <form method="get" action="/">
+                <button type="submit" class="topButton" id="Skimmy" >&lt;/Skimmy&gt;</button>
+                </form>
+                <!-- <text id="_Skimmy_" data-name="&lt;/Skimmy&gt;" class="cls-1" transform="translate(0 41)"><tspan x="0" y="0">&lt;/Skimmy&gt;</tspan></text> -->
             </div>
-        </div>
-
-        <div class="vl">
-            <div class="timeline-traveller">
-                <i class="fas fa-plane" style="color: rgb(207, 207, 207);"></i>
+            <div class="navButtons">
+                <button type="submit" class="topButton" id="Home" >Home</button>
+                <button class="topButton" id="About" >About Us</button>
+            </div>            
+                <button class="Options"> sidebar</button>
             </div>
-        </div>
+<!-- Actual Body of the Page -->
+        <div class="container">
 
-    </div>
-    <div class="getsetgo" style="background-color: #1f1f1f;">
-            <h2 style="color: azure; background-color: #1f1f1f;margin-left: 3rem; font-size: 40px;">Let's Get Skimming.</h2>
-    </div>
+                                <!-- Page One-->
 
-    <div class="process">
-        <div>
-          <form action="{{ url_for('index') }}"  method="POST">
-            <textarea name="paragraph_text" cols="60" rows="40" placeholder="Kindly Type Your Text Here.." style="background-color: antiquewhite; margin-left: 1rem; width: 45vw;"></textarea>  
-            <button id="textbt" style="background-color:#53fdae; margin-left: 38%; width: 100px;height: 30px;">Skim it !</button>
-            <input type="submit">
-          </form>
+            <div class="header" id="pageOne">
+                <h2 class="heading">No Text Is Ever <span class="highlight">Too Complicated</span> With Skimmy.</h2>
+                <h3 class="subHeading">A New Approach To Reading  Research Abstracts.</h3>
+                <div class="vl"></div>
+            </div>
+
+            <div class="form" id="pageOne">
+                <div class="SkimForm"><h2>Let's Get Skimming.</h2></div>
+                <br>
+                <div class="inputArea">
+                    <div class="textbox">
+                        <form action="{{ url_for('index') }}"  method="POST">
+                            <textarea name="paragraph_text" cols="60" rows="30" placeholder="Kindly Type Your Text Here.." ></textarea>  
+                            <br>
+                            <button class="textbt">Skim it !</button>
+                        </form>
+                    </div>
+                
+                    <div class="separator"> 
+                    </div> 
+
+                    <div class="uploadpart">
+                        <div class="or"><h2>-OR-</h2></div>
+                        <form method="post" enctype="multipart/form-data">
+                            <label for="upload-file">Upload</label>
+                            <input type="file" name="myfile" id="upload-file" />
+                            <br>
+                        </form>
+                        <div><h2> Upload PDF or txt Files! </h2> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="story" id="pageOne">
+            </div>
+            <div id="aboutus" class="about">
+                <div class="abouttext" >
+                    <p >The Story Behind </p>
+                    <p >Skimmy.</p>
+                </div>
         
-        <div class="uploadpart"> 
-         <h4 style="font-size: xx-large;margin-top: 15rem;margin-left: 7rem; color: rgb(179, 178, 178);">-OR-</h4>
-        </div> 
-        <div class="upload-btn-wrapper">
-            <form method="post" enctype="multipart/form-data">
-                <button class="btn">Upload a file</button>
-                <input type="file" name="myfile" style="color:#ffffff;"/>
-            </form>
+                <div class="story">
+                    <p >As the <span style=" background-color:black; color: #53fdae;">COVID-19 Virus </span> took over our livelihood,all across the globe research and studies had to focus on getting the best results in order to combat this situation. Amidst this chaos,large amounts of resources were being spent and of course ,<span style=" background-color:black; color: #53fdae;"> time was of the essence.</span> This valuable time was getting spent of reading through multi-paged articles only to find it is not related to the field of research needed!</p>
+                    <br>
+                    <p >To combat this situation ,<span style=" background-color:black; color: #53fdae;">Skimmy</span> was created by our team members.It allows researchers and students to 'Skim' long abstratcs into <span style=" background-color:black; color: #53fdae;">shorter targeted categories </span> aid the process.</p>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div id="aboutus" class="about">
-        <div class="abouttext" style="background-color: black; padding-top: 0.5rem; ">
-            <p style="color: aliceblue; background-color: black; font-size: 70px;margin-top: 0.5rem; margin-left: 40%;">The Story Behind </p>
-            <p style="color: #53fdae; background-color: black; font-size: 80px; margin-left: 59%;">Skimmy.</p>
-        </div>
-
-        <div class="story">
-            <p style="background-color: rgb(0, 0, 0); font-size: 25px; margin-left: 1rem; margin-top: 3rem; color: #ffffff;;">As the <span style=" background-color:black; color: #53fdae;">COVID-19 Virus </span> took over our livelihood,all across the globe research and studies had to focus on getting the best results in order to combat this situation. Amidst this chaos,large amounts of resources were being spent and of course ,<span style=" background-color:black; color: #53fdae;"> time was of the essence.</span> This valuable time was getting spent of reading through multi-paged articles only to find it is not related to the field of research needed!</p>
-            <br>
-            <p style="background-color: rgb(0, 0, 0); font-size: 25px; margin-left: 1rem; color: #f8f8f8;;">To combat this situation ,<span style=" background-color:black; color: #53fdae;">Skimmy</span> was created by our team members.It allows researchers and students to 'Skim' long abstratcs into <span style=" background-color:black; color: #53fdae;">shorter targeted categories </span> aid the process.</p>
-        </div>
-    </div>
-
-    <footer class="foot" style="height: 80px;">
-
-
-        <div class="bottominfo"></div>
-        <p style="color: aliceblue; margin-top: 2rem; margin-left: 40%; font-size: 25px;"> © TEAM SKIMMY </p>
-        <div style="color: aliceblue; margin-top: -3.5rem; margin-left: 80%; font-size: 20px;">
-            <a href=""> Privacy Note </a>
-         </div>
-
-    </footer>
-
+<!-- Bottom Text of Page -->
+        <footer class="bottomText">
+            <div class="copyright">
+                @2022 Team Skimmy
+            </div>
+            <div class="links">
+                    <a href="">Privacy Note</a>
+                    <a href="">Become Our Patreon</a>
+                    <a href="">Contact Us</a>
+            </div>
+        </footer>
+    </div>   
 </body>
 </html>
