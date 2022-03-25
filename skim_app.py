@@ -1,10 +1,20 @@
 import tensorflow as tf
 import spacy
 import PyPDF2
+import os
+from fpdf import FPDF
 
-from flask import Flask,render_template,request,flash,redirect
+import pdfkit
 
 
+from flask import Flask,render_template,request,flash,redirect, make_response
+
+
+OBJECTIVE=[]
+METHODS = []
+BACKGROUND = []
+RESULTS = []
+CONCLUSIONS = []
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -15,6 +25,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET','POST'])
 def main():
   return render_template('index.html')
+
 
 @app.route('/submit', methods=['GET','POST'])
 def index():
@@ -83,11 +94,11 @@ def index():
 
     # Visualize abstract lines and predicted sequence labels
     results = [f"{test_abstract_pred_classes[i]}: {line}" for i, line in enumerate(abstract_lines)]
-    OBJECTIVE = []
-    METHODS = []
-    BACKGROUND = []
-    RESULTS = []
-    CONCLUSIONS = []
+    global OBJECTIVE
+    global METHODS 
+    global BACKGROUND
+    global RESULTS 
+    global CONCLUSIONS 
     for line in results:
         if line.startswith('OBJECTIVE'):
             line = line.lstrip('n\OBJECTIVE')
@@ -108,22 +119,38 @@ def index():
     # BACKGROUND = str(BACKGROUND)
     # RESULTS = str(RESULTS)
     # CONCLUSIONS = str(CONCLUSIONS)
+    os.remove('easy_to_read.txt')
+    text_file = open('easy_to_read.txt','w')
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size = 13)
+    
     OBJECTIVE = "".join(OBJECTIVE)
     OBJECTIVE = OBJECTIVE.replace(':','')
+    text_file.write("OBJECTIVE\n")
+    text_file.write(OBJECTIVE)
+    
     
     METHODS = "".join(METHODS)
     METHODS = METHODS.replace(':','')
+    text_file.write("\nMETHODS\n")
+    text_file.write(METHODS)
     
     CONCLUSIONS = "".join(CONCLUSIONS)
     CONCLUSIONS = CONCLUSIONS.replace(':','')
+    text_file.write("\nCONCLUSIONS\n")
+    text_file.write(CONCLUSIONS)
     
     RESULTS = "".join(RESULTS)
     RESULTS = RESULTS.replace(':','')
+    text_file.write("\nRESULTS\n")
+    text_file.write(RESULTS)
     
     BACKGROUND = "".join(BACKGROUND)
     BACKGROUND = BACKGROUND.replace(':','')
+    text_file.write("\nBACKGROUND\n")
+    text_file.write(BACKGROUND)
 
-    print(METHODS)
      
     return render_template('skimmit.html',
                             objective = OBJECTIVE,
@@ -131,8 +158,24 @@ def index():
                             background=BACKGROUND,
                             results=RESULTS,
                             conclusions=CONCLUSIONS)
+
+@app.route('/submit/get_pdf')
+def get_pdf():
+    config = pdfkit.configuration(wkhtmltopdf='C:\Program Files\wkhtmltopdf/bin\wkhtmltopdf.exe')
+
+    rendered = render_template('skimmit.html',objective = OBJECTIVE,
+                            methods = METHODS,
+                            background=BACKGROUND,
+                            results=RESULTS,
+                            conclusions=CONCLUSIONS)
+    pdf = pdfkit.from_string(rendered, False,configuration=config)
+    response = make_response(pdf)
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'inline; filename=output.pdf'
     
+    return response
+    # return pdfkit.from_url('http://127.0.0.1:5000/submit', 'out.pdf',configuration=config,)
 
 
 if __name__ =='__main__':
-  app.run(debug=False)
+  app.run(debug=True)
