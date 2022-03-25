@@ -93,12 +93,9 @@ def index():
         if line.startswith('OBJECTIVE'):
             line = line.lstrip('n\OBJECTIVE')
             OBJECTIVE.append(line)
-            OBJECTIVE.append('\n')
-
         elif line.startswith('METHODS'):
             line = line.lstrip('n\METHODS')
             METHODS.append(line)
-            METHODS.append('\n')
         elif line.startswith('BACKGROUND'):
             line = line.lstrip('n\BACKGROUND')
             BACKGROUND.append(line)
@@ -108,12 +105,26 @@ def index():
         elif line.startswith('CONCLUSIONS'):
             line = line.lstrip('n\CONCLUSIONS')
             CONCLUSIONS.append(line)
-    OBJECTIVE = str(OBJECTIVE)
-    METHODS = str(METHODS)
-    BACKGROUND = str(BACKGROUND)
-    RESULTS = str(RESULTS)
-    CONCLUSIONS = str(CONCLUSIONS)
+    # OBJECTIVE = str(OBJECTIVE)
+    # BACKGROUND = str(BACKGROUND)
+    # RESULTS = str(RESULTS)
+    # CONCLUSIONS = str(CONCLUSIONS)
+    OBJECTIVE = "".join(OBJECTIVE)
+    OBJECTIVE = OBJECTIVE.replace(':','')
     
+    METHODS = "".join(METHODS)
+    METHODS = METHODS.replace(':','')
+    
+    CONCLUSIONS = "".join(CONCLUSIONS)
+    CONCLUSIONS = CONCLUSIONS.replace(':','')
+    
+    RESULTS = "".join(RESULTS)
+    RESULTS = RESULTS.replace(':','')
+    
+    BACKGROUND = "".join(BACKGROUND)
+    BACKGROUND = BACKGROUND.replace(':','')
+
+    print(METHODS)
      
     return render_template('skimmit.html',
                             objective = OBJECTIVE,
@@ -122,6 +133,4 @@ def index():
                             results=RESULTS,
                             conclusions=CONCLUSIONS)
     
-
-
 
