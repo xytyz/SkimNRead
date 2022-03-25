@@ -24,19 +24,18 @@ Switch to Mobile View at 575px */
   
   
 body{
-    body{
-    margin-top: 0px; 
-    margin-bottom: 0px; 
-    margin-left: 0px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
     margin-right: 0px;
     padding: 0;
-    color: var(--Text); 
-    font-size: 2ren; 
+    color: var(--Text);
+    font-size: 2ren;
     background-color: var(--Tertiary);
-    display:flex; 
-    flex-direction:column; 
+    display:flex;
+    flex-direction:column;
     max-width: 1536px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 button{
@@ -83,6 +82,9 @@ button{
     margin-left: 3em;
 }
 
+.navLogo>h3{
+    margin-top: 0.5rem;
+}
 
 .navButtons{
     align-items: flex-end;
@@ -120,7 +122,7 @@ button{
     align-items: center;
 }
 
-/************** Page One **************/
+/***** Page One *****/
 
 .header{
     display: flex;
@@ -133,6 +135,7 @@ button{
     background-color: var(--Tertiary) ;
     width: 68%;
     text-align: center;
+    
 }
 
 .heading{
@@ -155,11 +158,11 @@ button{
     70%{width: 34ch;}
     75%{width: 0ch;}
     100%{ width: 0ch;}
-}
-@keyframes blink{
+  }
+  @keyframes blink{
     from, to{border-color: transparent;}
     50%{border-color: black;}
-}
+  }
   
 .highlight{
     color: var(--Secondary);
@@ -284,12 +287,28 @@ label {
     position: absolute;
     z-index: -1;
  }
+.abouttext{
+     padding-top: 0.5rem;
+}
+.abouttext>p{
+    color: aliceblue; 
+    margin-top: 0.5rem;
+    margin-left: 30%;
+}
+
+.abouttext>p>span{
+    color: #53fdae;
+}
+ .story{
+    height: 500px;
+    width: 1000px;
+    margin-left: 5rem;
+}
 
 
 
 
-
-/************** Page Two **************/
+/***** Page Two *****/
 .sucess{
     font-size: 2.5rem;
     padding-top: 10vh;
@@ -311,7 +330,7 @@ label {
     background-color: white;
 }
 
-/*OUTPUT*/
+/* OUTPUT */
 .content{
     margin-left: 5rem;
 }
@@ -328,7 +347,7 @@ label {
 }
 
 
-/***** Footer ****/
+/** Footer ***/
 footer{
     padding: 0 28px;
     position: bottom;
