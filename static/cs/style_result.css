@@ -30,7 +30,7 @@ body{
     margin-right: 0px;
     padding: 0;
     color: var(--Text); 
-    font-size: 2ren; 
+    font-size: 2rem; 
     background-color: var(--Tertiary);
     display:flex; 
     flex-direction:column; 
@@ -135,7 +135,29 @@ button{
 .heading{
     font-size: 3rem;
 }
-
+.header>.heading{
+    font-size: 3rem;   
+    text-transform: capitalize;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid black;
+    width: 30ch;
+    color:rgb(255, 255, 255);
+    font-family: OCRAExtended, OCR A;
+    animation: typist 10s steps(33) infinite, blink step-end 1s infinite;
+}
+@keyframes typist{
+    0%{width: 0ch;}
+    47%{width: 34ch;}
+    70%{width: 34ch;}
+    75%{width: 0ch;}
+    100%{ width: 0ch;}
+}
+@keyframes blink{
+    from, to{border-color: transparent;}
+    50%{border-color: black;}
+}
+  
 .highlight{
     color: var(--Secondary);
 }
