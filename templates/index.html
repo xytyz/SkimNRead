@@ -55,9 +55,8 @@
                         <div class="or"><h2>-OR-</h2></div>
                         <form action = "/submit" method="post" enctype="multipart/form-data">
                             <label for="upload-file">Upload File from Device</label>
-                            <input type="file" name="myfile" id="upload-file" />
+                            <input type="file" name="myfile" id="upload-file" onchange="this.form.submit()"/>
                             <br>
-                            <input type="submit" style="background-color: #53fdae;">
                         </form>
                         <div><h2> Upload PDF or txt Files! </h2> </div>
                     </div>
