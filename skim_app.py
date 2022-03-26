@@ -2,7 +2,6 @@ import tensorflow as tf
 import spacy
 import PyPDF2
 import os
-from fpdf import FPDF
 
 import pdfkit
 
@@ -47,7 +46,8 @@ def index():
        
     doc = nlp(output)
     abstract_lines = [str(sent) for sent in list(doc.sents)]
-    print(abstract_lines)
+    print(abstract_lines[1])
+    
 
     # Get total number of lines
     total_lines_in_sample = len(abstract_lines)
@@ -119,37 +119,21 @@ def index():
     # BACKGROUND = str(BACKGROUND)
     # RESULTS = str(RESULTS)
     # CONCLUSIONS = str(CONCLUSIONS)
-    os.remove('easy_to_read.txt')
-    text_file = open('easy_to_read.txt','w')
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font("Arial", size = 13)
     
     OBJECTIVE = "".join(OBJECTIVE)
     OBJECTIVE = OBJECTIVE.replace(':','')
-    text_file.write("OBJECTIVE\n")
-    text_file.write(OBJECTIVE)
-    
     
     METHODS = "".join(METHODS)
     METHODS = METHODS.replace(':','')
-    text_file.write("\nMETHODS\n")
-    text_file.write(METHODS)
-    
+
     CONCLUSIONS = "".join(CONCLUSIONS)
     CONCLUSIONS = CONCLUSIONS.replace(':','')
-    text_file.write("\nCONCLUSIONS\n")
-    text_file.write(CONCLUSIONS)
-    
+
     RESULTS = "".join(RESULTS)
     RESULTS = RESULTS.replace(':','')
-    text_file.write("\nRESULTS\n")
-    text_file.write(RESULTS)
-    
+
     BACKGROUND = "".join(BACKGROUND)
     BACKGROUND = BACKGROUND.replace(':','')
-    text_file.write("\nBACKGROUND\n")
-    text_file.write(BACKGROUND)
 
      
     return render_template('skimmit.html',
@@ -163,12 +147,12 @@ def index():
 def get_pdf():
     config = pdfkit.configuration(wkhtmltopdf='C:\Program Files\wkhtmltopdf/bin\wkhtmltopdf.exe')
 
-    rendered = render_template('skimmit.html',objective = OBJECTIVE,
+    rendered = render_template('pdf_file.html',objective = OBJECTIVE,
                             methods = METHODS,
                             background=BACKGROUND,
                             results=RESULTS,
                             conclusions=CONCLUSIONS)
-    pdf = pdfkit.from_string(rendered, False,configuration=config)
+    pdf = pdfkit.from_string(rendered, False,configuration=config, css='static/cs/style_result.css')
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
     response.headers['Content-Disposition'] = 'inline; filename=output.pdf'
