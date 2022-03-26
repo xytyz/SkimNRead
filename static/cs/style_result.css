@@ -20,9 +20,17 @@ Switch to Mobile View at 575px */
     --pageone: none;
     --sideBarButton: none;
     --pageone: flex;
-  }
-  
-  
+}
+#loading{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #000000
+    url(https://media2.giphy.com/media/3ohzdOrcdpiD26TPt6/giphy.gif?cid=ecf05e47nzol25gp2cvi3jwues92ku0u1k1dije8iwuqnlkp&rid=giphy.gif&ct=g)
+    no-repeat center;
+    z-index: 99999;
+
+}
 body{
     margin-top: 0px;
     margin-bottom: 0px;
