@@ -30,12 +30,12 @@ body{
     margin-right: 0px;
     padding: 0;
     color: var(--Text);
-    font-size: 2rem;
     background-color: var(--Tertiary);
     display:flex;
     flex-direction:column;
-    max-width: 1536px;
+    max-width: 1536px !important;
     overflow-x: hidden;
+    overflow-anchor: none;
 }
 
 button{
@@ -345,7 +345,22 @@ label {
     margin-bottom: 3vw;
 
 }
+.content2{
+    margin-left: 5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-right: 2rem;
+}
 
+.content2>.OutputHeader{
+    color: var(--Secondary);
+    font-size: 1.5rem;
+}
+.content2>.Output{
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 3vw;
+
+}
 
 /** Footer ***/
 footer{
