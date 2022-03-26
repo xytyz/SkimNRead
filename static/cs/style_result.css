@@ -4,7 +4,7 @@ Switch to Mobile View at 575px */
 
 
 *{
-    font-family: OCRAExtended, OCR A;
+    font-family: 'Red Hat Mono', monospace;
     margin-block-start: 0px;
     margin-block-end: 0px;
     margin-inline-start: 0px;
@@ -30,7 +30,6 @@ body{
     margin-right: 0px;
     padding: 0;
     color: var(--Text);
-    font-size: 2ren;
     background-color: var(--Tertiary);
     display:flex;
     flex-direction:column;
