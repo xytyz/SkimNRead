@@ -30,7 +30,7 @@ body{
     margin-right: 0px;
     padding: 0;
     color: var(--Text);
-    font-size: 2ren;
+    font-size: 2rem;
     background-color: var(--Tertiary);
     display:flex;
     flex-direction:column;
