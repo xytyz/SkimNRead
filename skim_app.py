@@ -6,7 +6,7 @@ import os
 import pdfkit
 
 
-from flask import Flask,render_template,request,flash,redirect, make_response
+from flask import Flask,render_template,request,flash,redirect, make_response, jsonify
 
 
 OBJECTIVE=[]
@@ -25,24 +25,30 @@ app = Flask(__name__)
 def main():
   return render_template('index.html')
 
-
-@app.route('/submit', methods=['GET','POST'])
-def index():
+file_path=''
+@app.route('/submit2', methods=['GET','POST'])
+def load_page():
+    global file_path
     if request.method == 'POST':
         if 'myfile'  in request.files:
             abstract = request.files['myfile']
             file_path = './' + abstract.filename
             abstract.save(file_path)
-            pdfFileObject = open(file_path, 'rb')
-            pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
-            count = pdfReader.numPages
-            output = " "
-            for i in range(count):
-                page = pdfReader.getPage(i)
-                output+= page.extractText()
-            output = output.lstrip('\n')
-        else:
-            output = request.form.get("paragraph_text")
+    return render_template('redirect.html')
+
+@app.route('/submit')
+def index():
+    pdfFileObject = open(file_path, 'rb')
+    if pdfFileObject is not None:
+        pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
+        count = pdfReader.numPages
+        output = " "
+        for i in range(count):
+            page = pdfReader.getPage(i)
+            output+= page.extractText()
+        output = output.lstrip('\n')
+    else:
+        output = request.form.get("paragraph_text")
        
     doc = nlp(output)
     abstract_lines = [str(sent) for sent in list(doc.sents)]
@@ -64,7 +70,7 @@ def index():
     # Get all line_number values from sample abstract
     test_abstract_line_numbers = [line["line_number"] for line in sample_lines]
     # One-hot encode to same depth as training data, so model accepts right input shape
-    test_abstract_line_numbers_one_hot = tf.one_hot(test_abstract_line_numbers, depth=15) 
+    test_abstract_line_numbers_one_hot = tf.one_hot(test_abstract_line_numbers, depth=15)
 
     # Get all total_lines values from sample abstract
     test_abstract_total_lines = [line["total_lines"] for line in sample_lines]
@@ -136,12 +142,21 @@ def index():
     BACKGROUND = BACKGROUND.replace(':','')
 
      
+    return jsonify('so slow')
+
+@app.route('/done')
+def done_page():    
+    global OBJECTIVE
+    global METHODS 
+    global BACKGROUND
+    global RESULTS 
+    global CONCLUSIONS  
     return render_template('skimmit.html',
                             objective = OBJECTIVE,
                             methods = METHODS,
                             background=BACKGROUND,
                             results=RESULTS,
-                            conclusions=CONCLUSIONS)
+                            conclusions=CONCLUSIONS)                     
 
 @app.route('/submit/get_pdf')
 def get_pdf():
