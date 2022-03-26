@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="static/cs/style_result.css">
+    <script src="https://kit.fontawesome.com/996f78b0c3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Actual Body of the Page -->
+        <div class="container">
+                                <!-- Page Two-->
+
+            <div class="sucess" id="pageTwo">
+                <h1>Easy To Read</h1>
+                <hr>
+            </div>
+            <div class="content2" id="pageTwo">
+                {% if objective %}
+                <h1 class="OutputHeader">Objective - </h1>
+                    <div class="Output" id="output">{{ objective }}</div>
+                {% endif %}
+                {% if methods %}
+                <h1 class="OutputHeader">Methods - </h1>
+                    <div class="Output" id="Methods">{{ methods}}</div>
+                {% endif %}
+                {% if results %}
+                <h1 class="OutputHeader">Results - </h1>
+                    <div class="Output" id="Results" >{{ results }}</div>
+                {% endif %}
+                {% if background %}
+                <h1 class="OutputHeader">Background - </h1>
+                    <div class="Output" id="Background">{{ background }}</div>
+                {% endif %}
+                {% if conclusions %}
+                <h1 class="OutputHeader">Conclusion - </h1>
+                    <div class="Output" id="Conclusion">{{ conclusions }}</div>
+                {% endif %}    
+            </div>
+        </div>
+    </div>   
+</body>
+</html>

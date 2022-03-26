@@ -7,9 +7,8 @@
     <title>Skimmy</title>
     <link rel="stylesheet" href="static/cs/style_result.css">
     <script src="https://kit.fontawesome.com/996f78b0c3.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 </head>
-<body>
+<body style="min-height: 2862px;">
     <div class="mainContainer">
 <!-- NavBar -->
         <div class="navBar">
@@ -56,7 +55,7 @@
                         <div class="or"><h2>-OR-</h2></div>
                         <form action = "/submit" method="post" enctype="multipart/form-data">
                             <label for="upload-file">Upload File from Device</label>
-                            <input type="file" name="myfile" id="upload-file" onchange="this.form.submit()"/>
+                            <input type="file" name="myfile" id="upload-file" accept=".pdf" onchange="this.form.submit()"/>
                             <br>
                         </form>
                         <div><h2> Upload PDF or txt Files! </h2> </div>
