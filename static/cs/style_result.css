@@ -96,19 +96,28 @@ button{
 }
 
 .navButtons{
-    align-items: flex-end;
+    align-items: center;
     margin-right: 50px;
     border: none;
     padding-top: 4px;
+    justify-content: center;
+    display:flex;
+    padding: 0 2px 0 2px;
 
 }
 
 
 .topButton{
+    font-size: 1.5rem;
     background-color: var(--Primary);
     border-radius: 0px;
     border-bottom: 5px solid var(--Primary);
-    justify-content: space-between;
+    justify-content: center;
+    text-decoration: none;
+}
+
+#Btn{
+   padding-bottom: 1rem;
 }
 
 .topButton:hover{
@@ -159,7 +168,6 @@ button{
     border-right: 2px solid black;
     width: 30ch;
     color:rgb(255, 255, 255);
-    font-family: OCRAExtended, OCR A;
     animation: typist 10s steps(33) infinite, blink step-end 1s infinite;
 }
 @keyframes typist{
@@ -299,18 +307,18 @@ label {
     position: absolute;
     z-index: -1;
  }
-.aboutus{
-     padding-top: 0.5rem;
+.aboutusstory{
+     padding-top: 1rem;
      display:flex;
      flex-direction:row
 }
-.aboutus>p{
+.aboutusstory>p{
     color: aliceblue; 
     margin-top: 0.5rem;
     margin-left: 30%;
 }
 
-.aboutus>span{
+.aboutusstory>span{
     color: #53fdae;
 }
 
@@ -322,11 +330,9 @@ label {
 .about-head{
     font-size: 2rem;
     flex-grow: 1;
+    justify-content: center;
 }
 
-.spacer-head{
-    flex-grow: 1;
-}
 
 .about-text{
     justify-content: right;
@@ -429,10 +435,10 @@ label {
 
 /** Footer ***/
 footer{
-    padding: 0 28px;
+    padding: 5px 28px;
     position: bottom;
     border: var(--Primary);
-    margin-top:auto;
+    margin-top:0.5rem;
     border-top: 3 var(--Primary);
     position: bottom;
     bottom: 0%;
