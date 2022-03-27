@@ -307,6 +307,7 @@ label {
     position: absolute;
     z-index: -1;
  }
+
 .aboutusstory{
      padding-top: 1rem;
      display:flex;
@@ -342,6 +343,7 @@ label {
     height: 30vh;
     width: 100%;
     margin-left: 5rem;
+     margin-top: 3rem;
 }
 
 
