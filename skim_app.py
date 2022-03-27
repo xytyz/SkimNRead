@@ -17,6 +17,8 @@ CONCLUSIONS = []
 output=''
 file_path=''
 
+model = tf.keras.models.load_model("skimlit_model_5")
+
 nlp = spacy.load("en_core_web_sm")
 
 def split_chars(text):
@@ -26,6 +28,10 @@ app = Flask(__name__)
 @app.route('/', methods=['GET','POST'])
 def main():
   return render_template('index.html')
+
+@app.route('/aboutus')
+def about_us():
+    return render_template('aboutus.html')
 
 @app.route('/submit2', methods=['GET','POST'])
 def load_page():
@@ -59,7 +65,6 @@ def index():
         
     doc = nlp(output)
     abstract_lines = [str(sent) for sent in list(doc.sents)]
-    print(abstract_lines[1])
     
 
     # Get total number of lines
@@ -89,7 +94,7 @@ def index():
     abstract_chars = [split_chars(sentence) for sentence in abstract_lines]
     #print(abstract_chars)
 
-    model = tf.keras.models.load_model("skimlit_model_5")
+    
     test_abstract_pred_probs = model.predict(x=(test_abstract_line_numbers_one_hot,
                                                     test_abstract_total_lines_one_hot,
                                                     tf.constant(abstract_lines),
