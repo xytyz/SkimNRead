@@ -14,9 +14,8 @@ Switch to Mobile View at 575px */
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #000000
-    url(https://media2.giphy.com/media/3ohzdOrcdpiD26TPt6/giphy.gif?cid=ecf05e47nzol25gp2cvi3jwues92ku0u1k1dije8iwuqnlkp&rid=giphy.gif&ct=g)
-    no-repeat center;
+    background: #030303
+    url('https://media4.giphy.com/media/VseXvvxwowwCc/giphy.gif?cid=ecf05e47o62i8jgbcfc3rftja1wj8jpu41jdcrsjem6bna08&rid=giphy.gif&ct=g') no-repeat center ;
     z-index: 99999;
 
 }
@@ -42,7 +41,7 @@ body{
     background-color: var(--Tertiary);
     display:flex;
     flex-direction:column;
-    max-width: 1536px !important;
+    max-width: 1519.2px !important;
     overflow-x: hidden;
     overflow-anchor: none;
 }
@@ -114,10 +113,13 @@ button{
     border-bottom: 5px solid var(--Primary);
     justify-content: center;
     text-decoration: none;
+    align-items: stretch;
+
 }
 
 #Btn{
-   padding-bottom: 1rem;
+    margin: auto;
+    align-items: stretch;
 }
 
 .topButton:hover{
@@ -356,23 +358,32 @@ label {
 }
 
 .teammembers{
+    color: #000000;
     margin-top: 8rem;
     display: flex;
     overflow: hidden;
     justify-content: space-around;
 }
 .teammembers>.profile img{
-    width: 20vw;
+    width: inherit;
     height: 30vh;
+    margin:auto;
 }
 .profile{
-    background-color: rgb(31, 114, 187);
+   
+    width: 18vw;
+    text-align: center;
+    width: fit-content;
+    background-color: var(--Secondary);
 }
 .profile>h2{
+    margin:auto;
     margin-top: 1.5rem;
-    margin-left: 2rem;
+
 }
 .profile>p{
+    padding: 0 0.5rem 0 0.5rem;
+    margin:auto;
     margin-top: 1rem;
     align-items: center;
     padding-bottom: 1rem;
@@ -406,6 +417,7 @@ label {
 /* OUTPUT */
 .content{
     margin-left: 5rem;
+    max-width: 80vw;
 }
 
 .OutputHeader{
@@ -471,3 +483,5 @@ a{
     color: var(--Text);
     padding: 0px 1vw;
 }
+
+/** GETPDF ***/
