@@ -10,17 +10,6 @@ Switch to Mobile View at 575px */
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
-
-
-:root {
-    --Tertiary: #0E0E0E;
-    --Primary: #1F1F1F;
-    --Secondary: #53FDAE;
-    --Text: #fff;
-    --pageone: none;
-    --sideBarButton: none;
-    --pageone: flex;
-}
 #loading{
     position: fixed;
     width: 100%;
@@ -31,6 +20,18 @@ Switch to Mobile View at 575px */
     z-index: 99999;
 
 }
+
+:root {
+    --Tertiary: #0E0E0E;
+    --Primary: #1F1F1F;
+    --Secondary: #53FDAE;
+    --Text: #fff;
+    --pageone: none;
+    --sideBarButton: none;
+    --pageone: flex;
+  }
+  
+  
 body{
     margin-top: 0px;
     margin-bottom: 0px;
@@ -195,6 +196,8 @@ button{
 }
 
 /* Inputting Section */
+
+
 
 .form{
     display: flex;

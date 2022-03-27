@@ -6,7 +6,7 @@ import os
 import pdfkit
 
 
-from flask import Flask,render_template,request,flash,redirect, make_response, jsonify
+from flask import Flask,render_template,request, make_response, jsonify
 
 
 OBJECTIVE=[]
@@ -14,6 +14,8 @@ METHODS = []
 BACKGROUND = []
 RESULTS = []
 CONCLUSIONS = []
+output=''
+file_path=''
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -25,21 +27,28 @@ app = Flask(__name__)
 def main():
   return render_template('index.html')
 
-file_path=''
 @app.route('/submit2', methods=['GET','POST'])
 def load_page():
     global file_path
+    global output
+    output=''
+    filepath=''
     if request.method == 'POST':
         if 'myfile'  in request.files:
             abstract = request.files['myfile']
-            file_path = './' + abstract.filename
+            file_path = 'database/' + abstract.filename
             abstract.save(file_path)
+        else:
+            output = request.form.get("paragraph_text")
     return render_template('redirect.html')
 
-@app.route('/submit')
+@app.route('/submit',methods=['GET','POST'])
 def index():
-    pdfFileObject = open(file_path, 'rb')
-    if pdfFileObject is not None:
+    global output
+    if output:
+        output=output
+    else:
+        pdfFileObject = open(file_path, 'rb')
         pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
         count = pdfReader.numPages
         output = " "
@@ -47,9 +56,7 @@ def index():
             page = pdfReader.getPage(i)
             output+= page.extractText()
         output = output.lstrip('\n')
-    else:
-        output = request.form.get("paragraph_text")
-       
+        
     doc = nlp(output)
     abstract_lines = [str(sent) for sent in list(doc.sents)]
     print(abstract_lines[1])
@@ -105,6 +112,11 @@ def index():
     global BACKGROUND
     global RESULTS 
     global CONCLUSIONS 
+    OBJECTIVE=[]
+    METHODS = []
+    BACKGROUND = []
+    RESULTS = []
+    CONCLUSIONS = []
     for line in results:
         if line.startswith('OBJECTIVE'):
             line = line.lstrip('n\OBJECTIVE')
