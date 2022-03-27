@@ -339,7 +339,39 @@ label {
 }
 
 
+****** ABOUTUS ***********/
 
+.teamname{
+    margin-left: 35vw;
+    margin-top: 1rem;
+    font-size: xx-large;
+}
+
+.teammembers{
+    margin-top: 8rem;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-around;
+}
+.teammembers>.profile img{
+    width: 20vw;
+    height: 30vh;
+}
+.profile{
+    background-color: rgb(31, 114, 187);
+}
+.profile>h2{
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+}
+.profile>p{
+    margin-top: 1rem;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+.profile>a{
+    margin-top: 4rem;
+}
 
 /***** Page Two *****/
 .sucess{
