@@ -159,7 +159,6 @@ button{
     border-right: 2px solid black;
     width: 30ch;
     color:rgb(255, 255, 255);
-    font-family: OCRAExtended, OCR A;
     animation: typist 10s steps(33) infinite, blink step-end 1s infinite;
 }
 @keyframes typist{
